@@ -9,14 +9,14 @@ pipeline {
         stage('Maven build') {
             steps {
                 echo 'Building'
-                bat 'mvn clean install'
+                bat 'mvn clean package'
             }
         }
 
         stage('Execute') {
             steps {
                 echo 'Executer application'
-                bat 'dir target'
+                bat 'java -jar target\\jenkins_tp-0.0.1-SNAPSHOT.jar'
             }
         }
     }
