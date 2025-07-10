@@ -16,7 +16,7 @@ pipeline {
         stage('Execute') {
             steps {
                 echo 'Executer application'
-                bat 'java -jar target/*.jar'
+                bat 'dir target'
             }
         }
     }
