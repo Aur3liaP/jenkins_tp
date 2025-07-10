@@ -16,7 +16,8 @@ pipeline {
         stage('Execute') {
             steps {
                 echo 'Executer application'
-                bat 'java -jar target\\jenkins_tp-0.0.1-SNAPSHOT.jar'
+                bat 'java -Dspring.application.exit-on-failure=true -jar target\\jenkins_tp-0.0.1-SNAPSHOT.jar'
+
             }
         }
     }
