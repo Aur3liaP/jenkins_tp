@@ -15,9 +15,10 @@ pipeline {
 
         stage('Execute') {
             steps {
+            timeout(time: 10, unit: 'SECONDS') {
                 echo 'Executer application'
-                bat 'java -Dspring.application.exit-on-failure=true -jar target\\jenkins_tp-0.0.1-SNAPSHOT.jar'
-
+                bat 'start /b java -jar target\\jenkins_tp-0.0.1-SNAPSHOT.jar'
+            }
             }
         }
     }
