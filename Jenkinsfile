@@ -1,32 +1,19 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven'
-        jdk 'JDK'
-    }
-
+    stages {
         stage('Maven build') {
             steps {
-                echo 'Building'
+                echo 'Building with Maven...'
                 bat 'mvn clean install'
             }
         }
 
         stage('Execute') {
             steps {
-                echo 'Execution'
+                echo 'Running application...'
                 bat 'java -jar target/*.jar'
             }
-        }
-    }
-
-    post {
-        success {
-            echo 'Build complété!'
-        }
-        failure {
-            echo 'Build failed! :('
         }
     }
 }
