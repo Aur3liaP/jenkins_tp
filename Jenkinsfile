@@ -6,14 +6,6 @@ pipeline {
         jdk 'JDK'
     }
 
-    stages {
-        stage('Clone sources') {
-            steps {
-                echo 'Clone Repo'
-                git url: 'https://github.com/Aur3liaP/jenkins_tp'
-            }
-        }
-
         stage('Maven build') {
             steps {
                 echo 'Building'
