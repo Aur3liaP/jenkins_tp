@@ -1,17 +1,21 @@
 pipeline {
     agent any
 
+    tools {
+      maven 'Maven'
+    }
+
     stages {
         stage('Maven build') {
             steps {
-                echo 'Building with Maven...'
+                echo 'Building'
                 bat 'mvn clean install'
             }
         }
 
         stage('Execute') {
             steps {
-                echo 'Running application...'
+                echo 'Executer application'
                 bat 'java -jar target/*.jar'
             }
         }
